@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+	layout:decorate="~{plantilla/plantillaPrincipal}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<section class="content-header">
+
+			<!-- /.container-fluid -->
+		</section>
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+
+					<div class="col-sm-6"></div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+		<div class="container-fluid">
+
+
+
+			<form th:action="@{/guardarEmpresa}" th:object="${nuevoEmp}"
+				method="post">
+
+				<div class="mb-3">
+					<label class="form-label">Nombre Empresa</label> <input type="text"
+						th:field="*{nombre}" class="form-control" id="nombre"
+						aria-describedby="nombre">
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">RUC</label> <input type="text"
+						th:field="*{ruc}" class="form-control" id="ruc"
+						aria-describedby="ruc">
+
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Propietario</label> <input type="text"
+						th:field="*{propietario}" class="form-control" id="ciudad"
+						aria-describedby="ciudad">
+				</div>
+
+				 <br></br> <label class="form-label">Fecha de Creacion</label>
+				<div class="form-group">
+					<div class='input-group date' id='datetimepicker1'>
+						<input type='date' class="form-control"
+							th:field="*{fechaCreacion}" /> <span class="input-group-addon">
+							<span class="glyphicon glyphicon-calendar"></span>
+						</span>
+					</div>
+				</div>
+				<br></br> <label for="lang">Provincia</label>
+				<br></br> <select
+					name="provincias" id="lang" th:field="*{provincia}">
+					<option value="Azuay">Azuay</option>
+					<option value="Bolivar">Bolivar</option>
+					<option value="Canar">Canar</option>
+					<option value="Carchi">Carchi</option>
+					<option value="Chimborazo">Chimborazo</option>
+					<option value="Cotopaxi">Cotopaxi</option>
+					<option value="Imbabura">Imbabura</option>
+					<option value="Loja">Loja</option>
+					<option value="Napo">Napo</option>
+					<option value="Orellana">Orellana</option>
+					<option value="Pastaza">Pastaza</option>
+					<option value="Pichincha">Pichincha</option>
+					<option value="Tulcan">Tulcan</option>
+					<option value="Guayas">Guayas</option>
+					<option value="Los Rios">Los Rios</option>
+					<option value="Esmeraldas">Esmeraldas</option>
+					<option value="Manabi">Manabi</option>
+					<option value="El Oro">El Oro</option>
+					<option value="Morona Santiago">Morona Santiago</option>
+
+
+
+				</select> <br></br> <label class="form-label">Actividad Economica</label>
+				<div class="form-check">
+
+					<input type="radio" class="form-check-input" id="radio1"
+						name="optradio1" th:field="*{actividad}" value="Alimento" checked>Alimento
+					<label class="form-check-label" for="radio1"></label>
+				</div>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" id="radio2"
+						name="optradio2" th:field="*{actividad}" value="Servicio">Servicio<label
+						class="form-check-label" for="radio2"></label>
+				</div>
+				<div class="form-check">
+					<input type="radio" class="form-check-input" id="radio2"
+						name="optradio3" th:field="*{actividad}" value="Transporte">Transporte<label
+						class="form-check-label" for="radio2"></label>
+				</div>
+
+				<label class="form-label"></label> <br></br>
+
+				<button type="submit" class="btn btn-primary">save</button>
+				<input type="hidden" th:field="*{idEmpresa}">
+				<button class="btn btn-primary" type="button">back</button>
+			</form>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
